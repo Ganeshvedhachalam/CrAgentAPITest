@@ -23,6 +23,7 @@ namespace GEN_Shell_MobileBackend_API.Services
 
     public class DynamoService : IDBService
     {
+        // dynamo db client
         private AmazonDynamoDBClient _dynamoClient;
         public DynamoService()
         {
