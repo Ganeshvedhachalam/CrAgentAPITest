@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+      	<title>Shell E-bill</title>
+      	<link href="style.css" rel="stylesheet" type="text/css" />
+      	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      	<link href="https://fonts.googleapis.com/css?family=Lato&amp;display=swap" rel="stylesheet" />
+       	<script async="" crossorigin="anonymous" src="https://fullstory.com/s/fs.js"></script>
+        <style type="text/css">
+         @font-face {
+	         font-family: 'ShellBold';
+	         src: url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.otf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.ttf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.eot'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.svg'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.woff'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.woff2');
+	         font-weight: normal;
+	         font-style: normal;
+         }
+         @font-face {
+	         font-family: 'ShellHeavy';
+	         src: url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.otf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.ttf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.eot'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.svg'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.woff'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.woff2');
+	         font-weight: normal;
+	         font-style: normal;
+         }
+         @font-face {
+	         font-family: 'ShellBook';
+	         src: url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.otf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.ttf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.eot'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.svg'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.woff'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.woff2');
+	         font-weight: normal;
+	         font-style: normal;
+         }
+
+         .ShellBold {
+         	font-family: 'ShellBold', Arial, Helvetica, 'Roboto';
+         }
+
+         .ShellHeavy {
+         	font-family: 'ShellHeavy', Arial, Helvetica, 'Roboto';
+         }
+
+         .ShellBook {
+         	font-family: 'ShellBook', Arial, Helvetica, 'Roboto';
+         }
+
+         *{
+	         box-sizing: border-box;
+	         font-family: 'ShellBook', Arial, Helvetica, 'Roboto';
+         }
+
+         .main-layer{
+	         max-width: 650px;
+	         width: 100%;
+	         margin:0px auto;
+	         box-shadow: 0px 0px 30px 0px rgba(0,0,0,.5);
+	         background: white;
+         }
+         .inner-layer{
+         	padding: 20px;
+         }
+         .header{
+         	width: 100%;
+         	text-align: center;
+         }
+
+         .header-logo-img{
+	        display: block;
+	        border: none;
+         	margin: 0 auto;
+	      }
+
+         .head_txt{
+	         font-family: 'ShellBold';
+	         font-size:26px;
+	         padding: 15px 25px;
+         }
+
+         h1,h2,h3,h4,h5,h6, .bold{
+         	font-family: 'ShellBold';
+         }
+
+         .borderline{
+         	border-bottom: 10px solid #fbce07;
+         }
+         .borderline-grey{
+         	border-bottom: 2px solid #e9ecef;
+         	width: 100%;
+         }
+         .bill-info h3{
+         	margin-bottom: 0px;
+         }
+         table td{
+         	padding: 10px 0px;
+         }
+         .lable-tag{
+         	width: 40%;
+         	font-size: 20px;
+         	text-align: left;
+         }
+         .lable-data{
+         	width: 60%;
+         	font-size: 20px;
+         	text-align: right;
+         }
+         .header-lable{
+         	background: #e9ecef;
+         	padding: 10px 20px;
+         	font-size: 18px;
+         }
+         .box-pad{
+         	padding: 20px 0px;
+         }
+         .pad{
+         	padding: 0px;
+         }
+         .pb{
+         	padding-bottom: 0px;
+         }
+         .green{
+         	color: #008443;
+         }
+         .text-center{
+         	text-align: center;
+         }
+         .thankyou p{
+         	margin: 0px;
+         	font-size: 22px;
+         }
+         .thankyou h1{
+         	margin-bottom: 0px;
+         }
+         .footer-txt p{
+         	text-align: center;
+         	font-size: 22px;
+         }
+         p{
+         	color: #404040;
+         }
+         @media only screen and (min-width: 326px) and (max-width: 638px) {
+         	.lable-tag, .lable-data{
+         		font-size: 14px;
+         	}
+         	.thankyou p{
+	         	margin: 0px;
+	         	font-size: 13px;
+	         }
+	         p{
+	         	font-size: 13px;
+	         }
+	         h1, h3{
+	         	font-size: 18px;
+	         }
+	         .footer-txt p{
+	         	text-align: center;
+	         	font-size: 13px;
+	         }
+         }
+         @media only screen and (max-width: 323px) {
+         	.lable-tag, .lable-data{
+         		font-size: 14px;
+         	}
+         	.thankyou p{
+	         	margin: 0px;
+	         	font-size: 13px;
+	         }
+	         p{
+	         	font-size: 13px;
+	         }
+	         h1 , h3{
+	         	font-size: 18px;
+	         }
+	         .footer-txt p{
+	         	text-align: center;
+	         	font-size: 13px;
+	         }
+         }
+        </style>
+    </head>
+    <body>
+        <div class="main-layer">
+	        <div class="inner-layer">
+	         	<div class="header">
+	         		<img src="https://s3.amazonaws.com/fileservice.in/intouch_creative_assets/2d28662e-75de-46eb-9599-35359534.png" class="header-logo-img" >
+	         		<h1>Receipt/Tax Invoice</h1>
+	         	</div>
+	         	<div class="borderline"></div>
+	         	<div class="bill-header-info">
+	         		<div class="station-info">
+	         			<h3 ><b>Cap_Site</b></h3>
+		         		<h3></h3>
+		         		<p>Cap_Address</p>
+	         		</div>
+	         		<div class="table">
+	         			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	         				<tbody>
+	         					<tr>
+	         						<td class="lable-tag">Date</td>
+	         						<td class="lable-data"> Cap_BillingTime</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag">Site ID</td>
+	         						<td class="lable-data">Payment_StationId</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag">Pump ID</td>
+	         						<td class="lable-data">PaymentResponse_PumpNumber</td>
+	         					</tr>
+	         					<tr>
+	         							         					</tr>
+	         					<tr>
+	         						<td class="lable-tag">Pay Token ID</td>
+	         						<td class="lable-data">requestGetEReceipt_paymentId</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="bold lable-tag">Invoice Number</td>
+	         						<td class="bold lable-data">Invoice_Number</td>
+	         					</tr>
+	         				</tbody>
+	         			</table>
+	         		</div>
+	         	</div>
+	        </div>
+	        <div class="header-lable">
+	        	Purchased Items
+	        </div>
+	        <div class="inner-layer">
+	         	<div class="bill-header-info">
+	         		<div class="table borderline-grey box-pad">
+	         			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	         				<tbody>
+	         					<tr>
+	         						<td class="bold lable-tag pb">Transaction_Description</td>
+	         						<td class="bold lable-data pb">RM LineItem_Amount</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag pad">LineItem_Qty Litres x RM line_item_amount / Litre</td>
+	         						<td class="lable-data pad"></td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag">- Fuel rewards</td>
+	         						<td class="lable-data">LineItem_Discount</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag">- Voucher discount</td>
+	         						<td class="lable-data">tenderVoucher</td>
+	         					</tr>
+	         				</tbody>
+	         			</table>
+	         		</div>
+	         		<div class="table borderline-grey box-pad">
+	         			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	         				<tbody>
+	         					<tr>
+	         						<td class="bold lable-tag pb">Total paid</td>
+	         						<td class="bold lable-data pb">RM Transaction_Amount</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag pad"></td>
+	         						<td class="lable-data pad"></td>
+	         					</tr>
+	         				</tbody>
+	         			</table>
+	         		</div>
+	         		<div class="table box-pad">
+	         			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	         				<tbody>
+	         					<tr>
+	         						<td class="bold lable-tag">Total saved</td>
+	         						<td class="bold lable-data green">RM Transaction_Discount</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="bold lable-tag pb">Points earned</td>
+	         						<td class="bold lable-data pb green"> Transaction_Points_Issued</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag pad">Bonuslink Card ***paymentResponse_digitalCard</td>
+	         						<td class="lable-data pad"></td>
+	         					</tr>
+	         				</tbody>
+	         			</table>
+	         		</div>
+	         	</div>
+	        </div>
+	        <div class="header-lable">
+	        	Payment
+	        </div>
+	        <div class="inner-layer">
+	         	<div class="bill-header-info">
+	         		<div class="table borderline-grey box-pad">
+	         			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	         				<tbody>
+	         					<tr>
+	         						<td class="lable-tag">Method of payment</td>
+	         						<td class="lable-data">
+	         						<img src="https://s3-ap-southeast-1.amazonaws.com/fs.capillary.sg/intouch_creative_assets/67182cb9-c80b-42b1-8917-5e2dc9de.jpg" style="width: 50px; vertical-align: bottom;">
+	         						 paymentResponse_maskedCard
+	         						</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag pb">Merchant Auth ID</td>
+	         						<td class="lable-data pb">paymentResponse_pspReferenceNumber</td>
+	         					</tr>
+	         					<tr>
+	         						<td class="lable-tag pad"></td>
+	         						<td class="lable-data pad"></td>
+	         					</tr>
+	         				</tbody>
+	         			</table>
+	         		</div>
+	         		<div class="thankyou borderline-grey box-pad text-center">
+		         		<img src="https://s3.amazonaws.com/fileservice.in/intouch_creative_assets/2d28662e-75de-46eb-9599-35359534.png" class="header-logo-img" >
+		         		<h1>Thank you for visiting Shell</h1>
+		         		<p>We look forward to welcoming you again</p>
+	         		</div>
+	         		<div class="box-pad footer-txt">
+	         			<p>The difference between your fuelling limit and the <br>transaction value will be returned to your bank within<br> X working days.</p>
+	         		</div>
+	         	</div>
+	        </div>
+        </div>
+    </body>
+</html>

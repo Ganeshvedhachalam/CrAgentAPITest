@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="1.1.0" />
+    <PackageReference Include="Amazon.Lambda.TestUtilities" Version="1.1.0" />
+    <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="2.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Capillary.ShellProxy\Capillary.ShellProxy.csproj" />
+    <ProjectReference Include="..\..\src\Capillary.ShellProxy.API\Capillary.ShellProxy.API.csproj" />
+    <ProjectReference Include="..\..\src\Capillary.ShellProxy.Model\Capillary.ShellProxy.Model.csproj" />
+    <ProjectReference Include="..\..\src\Capillary.ShellProxy.Service\Capillary.ShellProxy.Service.csproj" />
+    <ProjectReference Include="..\..\src\Capillary.ShellProxy.Utilities\Capillary.ShellProxy.Utilities.csproj" />
+  </ItemGroup>
+</Project>

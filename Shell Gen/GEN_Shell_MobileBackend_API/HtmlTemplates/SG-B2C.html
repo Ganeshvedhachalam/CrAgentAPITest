@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Shell E-bill</title>
+	<!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Lato&amp;display=swap" rel="stylesheet" />
+	<!-- <script async="" crossorigin="anonymous" src="https://fullstory.com/s/fs.js"></script> -->
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+		@font-face {
+			font-family: 'ShellBold';
+			src: url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.otf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.ttf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.eot'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.svg'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.woff'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBold.woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'ShellHeavy';
+			src: url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.otf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.ttf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.eot'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.svg'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.woff'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellHeavy.woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'ShellBook';
+			src: url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.otf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.ttf'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.eot'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.svg'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.woff'), url('https://d3932rkn7nfr5g.cloudfront.net/js.static.in.ecom.s3.amazonaws.com/sharingan/shellfonts/ShellBook.woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		.ShellBold {
+			font-family: 'ShellBold', Arial, Helvetica, 'Roboto';
+			color: #404040;
+			letter-spacing: 0.15px;
+		}
+
+		.ShellHeavy {
+			font-family: 'ShellHeavy', Arial, Helvetica, 'Roboto';
+		}
+
+		.ShellBook {
+			font-family: 'ShellBook', Arial, Helvetica, 'Roboto';
+			color: #595959;
+		}
+
+		* {
+			box-sizing: border-box;
+			/* font-family: 'ShellBook', Arial, Helvetica, 'Roboto';*/
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			color: #595959;
+		}
+
+		.main-layer {
+			max-width: 420px;
+			width: 100%;
+			margin: 0px auto;
+			box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, .5);
+			background: white;
+		}
+
+		.inner-layer {
+			padding: 0px 15px 15px;
+		}
+
+		.header {
+			width: 100%;
+			text-align: center;
+		}
+
+		.header h1 {
+			font-size: 18px;
+			letter-spacing: 0.15px;
+			font-weight: 700;
+			font-family: 'ShellBold';
+			color: #404040;
+		}
+
+		.header-logo-img {
+			display: block;
+			border: none;
+			margin: 0 auto;
+		}
+
+		.head_txt {
+			font-family: 'ShellBold';
+			font-size: 26px;
+			padding: 15px 25px;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.bold {
+			font-family: 'ShellBold';
+		}
+
+		.borderline {
+			border-bottom: 10px solid #fbce07;
+		}
+
+		.borderline-grey {
+			border-bottom: 2px solid #e9ecef;
+			width: 100%;
+		}
+
+		.bill-info h3 {
+			margin-bottom: 0px;
+		}
+
+		table td {
+			/*padding: 10px 0px;*/
+			line-height: 30px;
+		}
+
+		.lable-tag {
+			width: 40%;
+			text-align: left;
+		}
+
+		.lable-tagbold {
+			font-size: 16px;
+			font-family: 'ShellBold';
+			letter-spacing: 0.466667px;
+			color: #404040;
+		}
+
+		.sevenhrd {
+			font-weight: 700;
+		}
+
+		.sixhrd {
+			font-weight: 600;
+		}
+
+		.lable-data {
+			width: 60%;
+			/*font-size: 20px;*/
+			text-align: right;
+		}
+
+		.lable-databold {
+			text-align: right;
+			font-size: 16px;
+			font-family: 'ShellBold';
+			letter-spacing: 0.466667px;
+		}
+
+		.header-lable {
+			background: #e9ecef;
+			padding: 10px 15px;
+			font-size: 12px;
+			letter-spacing: 0.4px;
+		}
+
+		.box-pad {
+			padding: 8px 0px 10px;
+		}
+
+		.pad {
+			padding: 0px;
+		}
+
+		.pb {
+			padding-bottom: 0px;
+		}
+
+		.green {
+			color: #008443;
+			/* font-size: 16px; */
+			letter-spacing: 0.466667px;
+			line-height: 15px;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+		.thankyou p {
+			margin: 5px;
+			font-size: 12px;
+		}
+
+		.thankyou h1 {
+			margin-bottom: 0px;
+		}
+
+		.footer-txt p {
+			text-align: center;
+			font-size: 22px;
+		}
+
+		p {
+			color: #404040;
+		}
+
+		.wid1 {
+			width: 60%;
+		}
+
+		.wid2 {
+			width: 40%;
+		}
+
+		.wid3 {
+			width: 78%;
+		}
+
+		.thnk {
+			font-size: 18px;
+			font-weight: 700;
+		}
+
+		.sixspan {
+			font-family: 'ShellBook';
+			color: #595959;
+			font-weight: 600;
+		}
+
+		@media only screen and (min-width: 324px) and (max-width: 638px) {
+
+			.lable-tag,
+			.lable-data {
+				font-size: 14px;
+			}
+
+			.wid1,
+			.wid3 {
+				font-size: 12.5px !important;
+			}
+
+			.wid2,
+			.wid4 {
+				font-size: 12px !important;
+			}
+
+			.thankyou p {
+				margin: 0px;
+				font-size: 13px;
+			}
+
+			p {
+				font-size: 13px;
+			}
+
+			h1,
+			h3 {
+				font-size: 18px;
+			}
+
+			.footer-txt p {
+				text-align: center;
+				font-size: 13px;
+			}
+		}
+
+		@media only screen and (max-width: 323px) {
+			.inner-layer {
+				padding: 0px 5px 10px;
+			}
+
+			.lable-tag,
+			.lable-data {
+				font-size: 14px;
+			}
+
+			.wid1,
+			.wid3 {
+				font-size: 12.5px !important;
+			}
+
+			.wid2,
+			.wid4 {
+				font-size: 12px !important;
+			}
+
+			.thankyou p {
+				margin: 0px;
+				font-size: 13px;
+			}
+
+			p {
+				font-size: 13px;
+			}
+
+			h1,
+			h3 {
+				font-size: 18px;
+			}
+
+			.footer-txt p {
+				text-align: center;
+				font-size: 13px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="main-layer">
+		<div class="inner-layer">
+			<div class="header">
+				<img src="https://s3.amazonaws.com/fileservice.in/intouch_creative_assets/2d28662e-75de-46eb-9599-35359534.png"
+					class="header-logo-img">
+				<h1>Tax Invoice</h1>
+			</div>
+			<div class="borderline"></div>
+			<div class="bill-header-info">
+				<div class="station-info">
+					<p class="sixspan">{{storeNameFromApi}}</p>
+					<p class="sixspan">{{CompanyName}}</p>
+					<p>{{storeAddressFromApi}}</p>
+					<p>{{GstNumber}}</p>
+				</div>
+
+				<div class="table">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td class="lable-tag wid2">Date</td>
+								<td class="lable-data wid1">{{FormatedDate}}</td>
+							</tr>
+							<tr>
+								<td class="lable-tag wid2">Site ID</td>
+								<td class="lable-data wid1">{{paymentResponse.stationId}}</td>
+							</tr>
+							<tr>
+								<td class="lable-tag wid2">Pump ID</td>
+								<td class="lable-data wid1">{{paymentResponse.pumpNumber}}</td>
+							</tr>
+							<tr>
+							</tr>
+							<tr>
+								<td class="lable-tag wid2">Pay Token ID</td>
+								<td class="lable-data wid1">{{requestGetEReceipt.paymentId}}</td>
+							</tr>
+						<tr>
+	         						<td class="lable-tagbold sevenhrd pb wid1">Invoice Number</td>
+	         						<td class="lable-databold sevenhrd pb wid2">{{InvoiceNumber}}</td>
+	         					</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="header-lable">
+			Purchased Items
+		</div>
+		<div class="inner-layer">
+			<div class="bill-header-info">
+				<div class="table borderline-grey box-pad">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td class="lable-tagbold sixhrd pb wid1" style="font-family: 'ShellBook';">{{ItemInfo}}
+								</td>
+								<td class="lable-databold sixhrd pb wid2" style="font-family: 'ShellBook';">{{CT}}
+									{{ItemValue}}</td>
+
+							</tr>
+							<tr>
+								<td class="lable-tag pad wid1">{{qty}} Litres x {{CT}} {{rate}}/ Litre</td>
+								<td class="lable-data pad wid2"></td>
+							</tr>
+						</tbody>
+
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td class="lable-tag green pb wid1">{{D.DiscountDesc}}</td>
+								<td class="lable-data green pbb wid2">{{D.ItemDiscountAmt}}</td>
+							</tr>
+							
+						</tbody>
+					</table>
+					<!-- <table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							
+						</tbody>
+					</table> -->
+				</div>
+				<div class="table borderline-grey box-pad">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td class="lable-tagbold sevenhrd pb wid1">Total paid</td>
+								<td class="lable-databold sevenhrd pb wid2">{{CT}} {{TotalAmt}}</td>
+							</tr>								
+						</tbody>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+						
+								<tr>
+								<td/>
+									<td align="right">Inc. GST 8% of {{CT}} {{GstAmt}}</td>
+	         					</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="table box-pad">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							{{D.Saved}}{{D.PointsIssued}}
+							<tr>
+								<td class="lable-tag pad wid1">Loyalty Card ***{{4digits}}</td>
+								<td class="lable-data pad wid2"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="header-lable">
+			Paid Via
+		</div>
+		<div class="inner-layer">
+			<div class="bill-header-info">
+				<div class="table borderline-grey box-pad">
+					{{D.TableVoucher}} </tbody>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td class="lable-tag wid2">Method of payment</td>
+								<td class="lable-data wid1">
+									<img src="{{CardImageUrl}}"
+										style="vertical-align: middle;padding-right: 10px;width: 40px">
+									{{maskedCard}}
+								</td>
+							</tr>
+							<tr>
+								<td class="lable-tag pb wid2">Merchant Auth ID</td>
+								<td class="lable-data pb wid1">{{pspReferenceNumber}}</td>
+							</tr>
+							<tr>
+								<td class="lable-tag pad"></td>
+								<td class="lable-data pad"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="thankyou box-pad text-center">
+					<h1 class="thnk">Thank you for visiting Shell</h1>
+					<p>We look forward to welcoming you again</p>
+				</div>
+				<div class="box-pad footer-txt">
+				</div>
+			</div>
+		</div>
+		<div>
+</body>
+
+</html>
