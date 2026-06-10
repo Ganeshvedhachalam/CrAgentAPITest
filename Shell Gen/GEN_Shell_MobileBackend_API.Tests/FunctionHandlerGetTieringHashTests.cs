@@ -76,5 +76,35 @@ namespace GEN_Shell_MobileBackend_API.Tests
             var body = JsonConvert.DeserializeObject<ErrorResponse>(response.Body);
             Assert.Equal("No Card Number attached to the customer", body.message);
         }
+
+        [Fact]
+        public void GetTieringHash_WhenCardHasNoCustomFields_ReturnsCustomFieldNotPresentMessage()
+        {
+            var crmMock = new Mock<ICrmService>();
+            var dbMock = new Mock<IDBService>();
+
+            crmMock.Setup(c => c.CustomersLookupGetAsync(It.IsAny<string>(), It.IsAny<string>()))
+                   .ReturnsAsync(new CustomerLookUpResponse
+                   {
+                       errors = null,
+                       cardDetails = new List<CardDetail>
+                       {
+                           new CardDetail { seriesCode = TestSeriesCode, cardNumber = "1234567890" }
+                       }
+                   });
+
+            crmMock.Setup(c => c.CardDetailsGetAsync(It.IsAny<string>(), "1234567890"))
+                   .ReturnsAsync(new GEN_Shell_MobileBackend_API.Models.CardResponse
+                   {
+                       customFields = null
+                   });
+
+            var handler = CreateHandler(crmMock, dbMock);
+            var response = handler.GetTieringHash(BuildRequest(), null);
+
+            Assert.Equal(400, response.StatusCode);
+            var body = JsonConvert.DeserializeObject<ErrorResponse>(response.Body);
+            Assert.Equal("Custom Field Not Present for the customer in customer details", body.message);
+        }
     }
 }

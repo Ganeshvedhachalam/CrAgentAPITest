@@ -137,9 +137,9 @@ namespace GEN_Shell_MobileBackend_API
                         }
                         else
                         {
-                            errorResponse.message = "Custom Field Not Present";
+                            errorResponse.message = "Custom Field Not Present for the customer in customer details";
                             errorResponse.code = 500;
-                            return funcSendResponse(requestId, HttpStatusCode.BadRequest, "{\"message\": \"Custom Fields Not Present\"}", 500);
+                            return funcSendResponse(requestId, HttpStatusCode.BadRequest, "{\"message\": \"Custom Field Not Present for the customer in customer details\"}", 500);
                         }
                     }
                     else
