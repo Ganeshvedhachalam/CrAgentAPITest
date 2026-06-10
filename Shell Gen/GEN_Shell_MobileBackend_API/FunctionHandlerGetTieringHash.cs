@@ -19,6 +19,14 @@ namespace GEN_Shell_MobileBackend_API
         ICrmService _crmService;
         IDBService _dynamoService;
         string seriesCode;
+
+        public FunctionHandlerGetTieringHash(ICrmService crmService, IDBService dbService, string seriesCode)
+        {
+            _crmService = crmService;
+            _dynamoService = dbService;
+            this.seriesCode = seriesCode;
+        }
+
         public FunctionHandlerGetTieringHash()
         {
             //_dynamoService = new DynamoService();
@@ -63,7 +71,7 @@ namespace GEN_Shell_MobileBackend_API
             {
 
                 //API Authentication
-                var Auth = Helper.API_Authentication(requestId, request);
+                var Auth = Helper.API_Authentication(requestId, request, _dynamoService);
                 if (Auth != "success")
                     return funcSendResponse(requestId, HttpStatusCode.Unauthorized, JsonConvert.SerializeObject(new APIErrorClass { message = Auth }), 401);
 
@@ -136,7 +144,7 @@ namespace GEN_Shell_MobileBackend_API
                     }
                     else
                     {
-                        errorResponse.message = "No Card Number";
+                        errorResponse.message = "No Card Number attached to the customer";
                         errorResponse.code = 500;
                         return funcSendResponse(requestId, HttpStatusCode.BadRequest, JsonConvert.SerializeObject(errorResponse), 500);
                     }
