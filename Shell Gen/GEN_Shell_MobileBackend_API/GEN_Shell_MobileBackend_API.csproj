@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Excluded: missing dependencies (RsaSha256AndMgf1, IAuthService, IntegrationService) not yet committed -->
+    <Compile Remove="FunctionHandlerValidatePin.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="2.5.0" />
     <PackageReference Include="Amazon.Lambda.Core" Version="2.1.0" />
     <PackageReference Include="AWSSDK.DynamoDBV2" Version="3.5.0.2" />

@@ -12,13 +12,13 @@ namespace GEN_Shell_MobileBackend_API.Utilities
     public class Helper
     {
        
-        public static string  API_Authentication(string requestId, APIGatewayProxyRequest request)
+        public static string API_Authentication(string requestId, APIGatewayProxyRequest request, IDBService dbService = null)
         {
             IDBService _dynamoService;
             try
             {
                 Console.WriteLine("RequestId:{0}. Enter API_Authentication",requestId);
-                _dynamoService = new DynamoService();
+                _dynamoService = dbService ?? new DynamoService();
                 //Check for Header if present or not
                 if (request.Headers == null && request.Headers.Count <= 0)
                     return "Headers are missing";
